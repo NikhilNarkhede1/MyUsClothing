@@ -25,12 +25,14 @@ async function request(url, options) {
   return data;
 }
 
+const API_BASE_URL = "https://myusclothing.onrender.com";
+
 export function getProducts() {
-  return request("/api/products");
+  return request(`${API_BASE_URL}/api/products`);
 }
 
 export function placeOrder(order) {
-  return request("/api/orders", {
+  return  request(`${API_BASE_URL}/api/orders`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(order),
